@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spørgsmål</title>
+    <link rel="stylesheet" href="/css/formstyles.css">
+</head>
+<body>
+    <ul class="menu">
+        <li><a href="index.html"><img src="/img/threesimple.png" alt="logo"></a>
+            <ul class="hovedmenuer">
+                <li><a href="skill-tree.html">Talenttræ</a></li>
+                <li><a href="hvorfor-hobby.html">Hvorfor have en hobby</a></li>
+                <li><a href="netvaerk.html">Netværk</a>
+                    <!-- Undermenuer til Netværk -->
+                    <ul class="submenuer">
+                        <li><a href="form.html">Spørgsmål</a></li>
+                        <li><a href="#">Forum</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <main>
+        <article class="kontakt">
+            <form action="https://api.web3forms.com/submit" method="POST" class="kontakt-venstre">
+                <section class="kontakt-venstre-titel">
+                    <h2>Stil et spørgsmål</h2>
+                    <hr>
+                    
+                </section>
+                <input type="hidden" name="access_key" value="dab1830d-0893-457b-8129-1fcacd0df5e5">
+                <input type="text" name="navn" placeholder="Dit navn" class="kontakt-input" required>
+                <input type="email" name="e-mail" placeholder="Din e-mail" class="kontakt-input" required>
+                <textarea name="besked" placeholder="Skriv dit spørgsmål her" class="kontakt-input" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </article>
+    </main>
+</body>
+</html>

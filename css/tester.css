@@ -1,0 +1,28 @@
+/*Jeg tester her hvordan man får et element til at gøre noget, når et andet element bliver "hover'et". Og her virker det som det skal. Men jeg kan af en eller anden grund ikke få det til at virke med de ting jeg gerne vil have.*/
+
+.container {
+    position: relative;
+    background-color: black;
+}
+
+.text {
+    font-size: 20px;
+    color: rgb(8, 243, 0);
+    cursor: pointer;
+}
+
+.image {
+    display: none;
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Når musen er over teksten */
+.text:hover {
+    color: red; /* Skift farve til rød */
+}
+
+.text:hover + .image {
+    display: block; /* Gør billedet synligt */
+}

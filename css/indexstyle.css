@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:#00082b;
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    height: 100%;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.titler{
+   display: none;
+}
+
+.blomst img{
+    
+    position: absolute;
+   
+    object-fit: contain; 
+    max-width: 100%; 
+    height: auto; 
+    transition: opacity 0.3s ease;
+     
+}
+/*Skabelon billede
+.blomst #reference{
+   
+    top: 50%;
+    left: 50%;
+    
+}*/
+
+/* Specifik placering af billeder */
+.blomst .venstre img {
+    transform: rotate(120deg);
+    width: 10%; /* Dynamisk bredde baseret på containerens bredde */
+    top: 30%; /* Justér placering i forhold til baggrunden */
+    left: 35.5%;
+    clip-path: inset(0% 5% 0% 5%); /* Cropping using percentages (top, right, bottom, left) */
+   border-radius: 10%;
+}
+
+.blomst .midt img {
+    transform: rotate(180deg);
+    width: 10%; /* Dynamisk bredde baseret på containerens bredde */
+    top: 17%;
+    left: 50%;
+    clip-path: inset(0% 5% 0% 5%); /* Cropping using percentages (top, right, bottom, left) */
+   border-radius: 20%;
+}
+
+.blomst .hoejre img {
+   transform: rotate(-120deg);
+    width: 10%; /* Dynamisk bredde baseret på containerens bredde */
+    top: 30%;
+    left: 64.5%;
+    clip-path: inset(0% 5% 0% 5%); /* Cropping using percentages (top, right, bottom, left) */
+   border-radius: 100%;
+  
+}
+.blomst .outline{
+    opacity: 0;
+}
+
+/* Hover-effekt for billeder */
+.blomst .outline:hover {
+    opacity: 100; /* Skjuler det passive billede */
+    cursor: pointer;
+    
+}
+
+.fremhaevet:hover + .titler{
+    display:block;
+}

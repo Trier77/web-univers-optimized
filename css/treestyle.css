@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body{
+    background-color:#00082b;
+    color:#fff;
+    
+    
+    
+    background-image: url(..//img/tree-no-bg.png);
+    background-size: 100vh;
+    background-position: center;
+    
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+nav{
+    padding: 1.25rem; /* 20px -> 1.25rem */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul.menu {
+    position: absolute;
+    top: 1.25rem; /* 20px -> 1.25rem */
+    right: 1.25rem; /* 20px -> 1.25rem */
+}
+
+ul.menu > li {
+    position: relative;
+    display: inline-block;
+}
+
+ul.menu li a {
+    display: block;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 2rem; /* Holder denne i rem for konsistent skala */
+    padding: 0.625rem; /* 10px -> 0.625rem */
+}
+
+ul.menu li img {
+    width: 10.25rem; /* 100px -> 6.25rem */
+}
+
+.hovedmenuer {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    padding: 0;
+    width: 15.625rem; /* 250px -> 15.625rem */
+    z-index: 999;
+}
+
+.hovedmenuer li {
+    display: block;
+}
+
+.hovedmenuer li a {
+    padding: 0.625rem; /* 10px -> 0.625rem */
+    color: #FFF;
+    font-size: 1.5rem; /* Holdt konsistent */
+    background-color: #132949;
+    outline: 0.125rem solid rgb(255, 255, 255); /* 0.2rem */
+}
+
+.submenuer {
+    display: none;
+    position: absolute;
+    top: 72%;
+    right: 100%;
+    background-color: #444;
+    width: 66.67%; /* 2/3 af hovedmenuens bredde */
+}
+
+.submenuer li a {
+    padding: 0.625rem; /* 10px -> 0.625rem */
+    color: #FFF;
+    font-size: 1.2rem; /* Mindre font for undermenuer */
+    background-color: #132949;
+    outline: 0.125rem solid rgb(255, 255, 255); /* 0.2rem */
+}
+
+ul.menu li:hover > .hovedmenuer {
+    display: block;
+}
+
+.hovedmenuer li:hover > .submenuer {
+    display: block;
+}
+
+ul.menu li a:hover,
+.hovedmenuer li a:hover,
+.submenuer li a:hover {
+    outline: 0.125rem solid orange; /* 0.2rem */
+}
+
+/* Sørger for, at ingen menuer går uden for viewporten */
+ul.menu {
+    max-width: 100vw;
+}
+
+.hovedmenuer,
+.submenuer {
+    max-width: calc(100vw - 1.25rem); /* Undgå at menuer går uden for visningsområdet */
+}
+
+.skill-tree-images img{
+    position: absolute;
+    
+    width: 50vh;   /* 60% of the parent's width */
+    height: 50vh;
+    object-fit: contain; /* Sørger for at billedet holder sit forhold */
+    max-width: 100%; /* Billeder skal ikke overskride containerens bredde */
+    height: auto; /* Behold billedets aspektforhold */
+    transition: opacity 0.3s ease; /* Blød overgang for hover-effekten */
+    
+     
+    
+}
+
+
+/* Specifik placering af billeder */
+.skill-tree-images .bil-vid img {
+    width: 20%; /* Dynamisk bredde baseret på containerens bredde */
+    top: 22%; /* Justér placering i forhold til baggrunden */
+    left: 33%;
+    clip-path: inset(36% 36% 36% 36%); /* Cropping using percentages (top, right, bottom, left) */
+   border-radius: 50%;
+}
+
+.skill-tree-images .musik img {
+    width: 20%; /* Dynamisk bredde baseret på containerens bredde */
+    top: 40%;
+    left: 41%;
+    clip-path: inset(36% 36% 36% 36%); /* Cropping using percentages (top, right, bottom, left) */
+   border-radius: 50%;
+}
+
+.skill-tree-images .tegn-male img {
+    width: 20%; /* Dynamisk bredde baseret på containerens bredde */
+    top: 21%;
+    left: 46%;
+    clip-path: inset(36% 36% 36% 36%); /* Cropping using percentages (top, right, bottom, left) */
+   border-radius: 50%;
+}
+
+.skill-tree-images .norkling img {
+    width: 20%; /* Dynamisk bredde baseret på containerens bredde */
+    top: 31%;
+    left: 46%;
+    clip-path: inset(36% 36% 36% 36%); /* Cropping using percentages (top, right, bottom, left) */
+   border-radius: 50%;
+}
+
+/* Hover-effekt for billeder */
+.skill-tree-images .passive:hover {
+    opacity: 0; /* Skjuler det passive billede */
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+

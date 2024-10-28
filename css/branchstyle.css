@@ -1,0 +1,316 @@
+/*åbenbart ikonerne opfører sig anerledes end de farvede skiver. De forhindre åbenbart at hover-effekten virker. <a>-delen virker dog stadigvæk.
+Jeg ved ikke hvad det er der gør at navbaren ikke virker med hover*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #00051a;
+    color: #fff;
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+h1 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* Så overskriften ligger over baggrunden */
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* placering */
+ul.menu {
+    position: absolute;
+    top: 1.25rem; 
+    right: 1.25rem; 
+}
+
+ul.menu > li {
+    position: relative;
+    display: inline-block;
+}
+
+ul.menu li a {
+    display: block;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 2rem; /* Holder denne i rem for konsistent skala */
+    padding: 0.625rem; /* 10px -> 0.625rem */
+}
+
+ul.menu li img {
+    width: 10.25rem; 
+}
+
+.hovedmenuer {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    padding: 0;
+    width: 15.625rem; /* 250px -> 15.625rem */
+    z-index: 999;
+}
+
+.hovedmenuer li {
+    display: block;
+}
+
+.hovedmenuer li a {
+    padding: 0.625rem; /*afstand til viewport*/
+    color: #FFF;
+    font-size: 1.5rem; 
+    background-color: #132949;
+    outline: 0.125rem solid rgb(255, 255, 255); 
+}
+
+.submenuer {
+    display: none;
+    position: absolute;
+    top: 72%;
+    right: 100%;
+    background-color: #444;
+    width: 66.67%; /* 2/3 af hovedmenuens bredde */
+}
+
+.submenuer li a {
+    padding: 0.625rem; /* 10px -> 0.625rem */
+    color: #FFF;
+    font-size: 1.2rem; 
+    background-color: #132949;
+    outline: 0.125rem solid rgb(255, 255, 255); 
+}
+
+ul.menu li:hover > .hovedmenuer {
+    display: block;
+}
+
+.hovedmenuer li:hover > .submenuer {
+    display: block;
+}
+
+ul.menu li a:hover,
+.hovedmenuer li a:hover,
+.submenuer li a:hover {
+    outline: 0.125rem solid orange; /* 0.2rem */
+}
+
+/* Sørger for, at ingen menuer går uden for viewporten */
+ul.menu {
+    max-width: 100vw;
+}
+
+.hovedmenuer,
+.submenuer {
+    max-width: calc(100vw - 1.25rem); /* Undgå at menuer går uden for visningsområdet */
+}
+
+
+/* Containeren til baggrundsbillede og billeder */
+.img-rest {
+    position: relative;
+    width: 100vw; /* Halv bredde af viewport */
+    height: 100vh; /* Halv højde af viewport */
+    
+    background-image: url('../img/branch2.png');
+    background-size: 70%; /* Baggrundsbilledet skal holde sit forhold */
+    background-position: center 30%; /* Centrer baggrunden */
+    background-repeat: no-repeat;
+    
+}
+
+
+.img-rest .branch-images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Alle billeder skal have samme base-stil */
+.branch-images img {
+    position: absolute;
+    object-fit: contain; /* Sørger for at billedet holder sit forhold */
+    max-width: 100%; /* Billeder skal ikke overskride containerens bredde */
+    height: auto; /* Behold billedets aspektforhold */
+    transition: opacity 0.3s ease; /* Blød overgang for hover-effekten */
+}
+
+/* Specifik placering af billeder */
+.branch-images .vid-graf img {
+    width: 20%; /* Dynamisk bredde baseret på containerens bredde */
+    top: 22%; /* Justér placering i forhold til baggrunden */
+    left: 33%;
+    clip-path: inset(36% 36% 36% 36%); /* Cropping using percentages (top, right, bottom, left) */
+   border-radius: 50%;
+}
+
+.branch-images .foto-graf img {
+    width: 20%; /* Dynamisk bredde baseret på containerens bredde */
+    top: 40%;
+    left: 41%;
+    clip-path: inset(36% 36% 36% 36%); /* Cropping using percentages (top, right, bottom, left) */
+   border-radius: 50%;
+}
+
+.branch-images .digi-kunst img {
+    width: 20%; /* Dynamisk bredde baseret på containerens bredde */
+    top: 21%;
+    left: 46%;
+    clip-path: inset(36% 36% 36% 36%); /* Cropping using percentages (top, right, bottom, left) */
+   border-radius: 50%;
+}
+
+/* Hover-effekt for billeder */
+.branch-images .passive:hover {
+    opacity: 0; /* Skjuler det passive billede */
+    cursor: pointer;
+}
+
+.branch-images .illus{
+    z-index: 1;
+}
+
+
+
+
+
+
+
+/*@media (max-width: 768px) {
+    .img-rest {
+        width: 80vw; /* Større bredde på tablets 
+        height: 40vh; 
+    }
+
+    .branch-images img {
+        width: 35%; /* Større billeder 
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Mindre overskrift til tablets 
+    }
+}
+
+@media (max-width: 480px) {
+    .img-rest {
+        width: 90vw; /* Endnu større bredde til meget små skærme 
+        height: 50vh; /* Juster højden for små skærme 
+    }
+
+    .branch-images img {
+        width: 50%; /* Endnu større billeder 
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Mindre overskrift til små skærme 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.branch-images{
+    
+}
+
+.branch-images .vid-graf{
+    
+    
+}
+
+.branch-images .vid-graf img{
+    position: absolute;
+    object-fit: cover;
+    height: 50vh;
+    width: 50vh;
+    top: 20%;
+    left: 30%;
+}
+
+.branch-images .vid-graf .passive:hover{
+    opacity: 0;
+    cursor: pointer;
+}
+
+.branch-images .foto-graf{
+
+}
+
+.branch-images .foto-graf img{
+    position: absolute;
+    object-fit: cover;
+    height: 50vh;
+    width: 50vh;
+    top: 60%;
+    left: 40%;
+}
+
+.branch-images .foto-graf .passive:hover{
+    opacity: 0;
+    cursor: pointer;
+}
+
+.branch-images .digi-kunst{
+
+}
+
+.branch-images .digi-kunst img{
+    position: absolute;
+    object-fit: cover;
+    height: 50vh;
+    width: 50vh;
+    top: 50%;
+    left: 50%;
+}
+
+.branch-images .digi-kunst .passive:hover{
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/*.branch-images .active {
+    opacity: 0;   Hide the active image by default
+}
+
+.branch-images:hover .active {
+    opacity: 1;  /* Show the active image on hover 
+}*
+
+.branch-images:hover .passsive {
+    opacity: 0;   Hide the passive image on hover 
+}*/
